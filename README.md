@@ -44,3 +44,9 @@ pre-commit
 cz c
 git push -u origin main --tags
 ```
+
+## Build Docs
+```bash
+pip install -e .[docs]
+sphinx-build -b html docs docs/_build/html
+```

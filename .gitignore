@@ -1,4 +1,5 @@
 src/astrodynx/_version.py
+docs/_build/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

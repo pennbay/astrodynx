@@ -28,12 +28,28 @@ classifiers = [
 ]
 keywords = ["astrodynamics", "celestial mechanics"]
 
+[project.urls]
+"Homepage" = "https://github.com/pennbay/astrodynx"
+"Bug Tracker" = "https://github.com/pennbay/astrodynx/issues"
+"Documentation" = "https://pennbay.github.io/astrodynx"
+
 [project.optional-dependencies]
 dev = [
     "commitizen",
     "pytest",
     "pytest-cov",
     "pre-commit"
+]
+docs = [
+    "sphinx",
+    "sphinx-book-theme",
+    "myst-parser",
+    "nbsphinx",
+    "sphinx-autodoc-typehints",
+    "sphinx-copybutton",
+    "ipython",
+    "matplotlib",
+    "jupyter",
 ]
 
 [tool.setuptools_scm]
