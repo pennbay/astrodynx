@@ -1,6 +1,9 @@
-# AstroDynX (adx)
+![GitHub License](https://img.shields.io/github/license/pennbay/astrodynx)
 
-A modern astrodynamics library powered by JAX.
+
+# AstroDynX
+
+A modern astrodynamics library powered by JAX: differentiate, vectorize, JIT to GPU/TPU, and more.
 
 ## Features
 - JAX-based fast computation
@@ -13,6 +16,14 @@ A modern astrodynamics library powered by JAX.
 ```bash
 pip install astrodynx
 ```
+
+## Usage
+Check version
+```python
+import astrodynx as adx
+print(adx.__version__)
+```
+
 
 ## Development
 Initialize
