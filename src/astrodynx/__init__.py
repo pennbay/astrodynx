@@ -1,5 +1,4 @@
-try:
-    from ._version import __version__, __version_tuple__, version, version_tuple
-except ImportError:
-    __version__ = "0.0.0"
-
+from ._version import version as version
+from ._version import version_tuple as version_tuple
+from ._version import __version__ as __version__
+from ._version import __version_tuple__ as __version_tuple__

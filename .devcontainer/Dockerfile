@@ -21,4 +21,3 @@ RUN mkdir -p /home/vscode/.pip \
     && echo '[global]' > /home/vscode/.pip/pip.conf \
     && echo 'index-url = https://pypi.tuna.tsinghua.edu.cn/simple' >> /home/vscode/.pip/pip.conf \
     && echo 'trusted-host = pypi.tuna.tsinghua.edu.cn' >> /home/vscode/.pip/pip.conf
-
