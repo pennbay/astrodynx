@@ -1,6 +1,8 @@
 ![GitHub License](https://img.shields.io/github/license/pennbay/astrodynx)
 [![CI](https://github.com/pennbay/astrodynx/actions/workflows/ci.yml/badge.svg)](https://github.com/pennbay/astrodynx/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/pennbay/astrodynx/graph/badge.svg?token=CeIVlgbcAs)](https://codecov.io/gh/pennbay/astrodynx)
+![PyPI - Version](https://img.shields.io/pypi/v/astrodynx)
+
 
 # AstroDynX
 
@@ -35,5 +37,10 @@ pre-commit install
 After code change
 ```bash
 pytest
+```
+```bash
+git add .
 pre-commit
+cz c
+git push -u origin main --tags
 ```
