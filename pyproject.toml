@@ -30,8 +30,6 @@ keywords = ["astrodynamics", "celestial mechanics"]
 [project.optional-dependencies]
 dev = [
     "commitizen",
-    "ruff",
-    "mypy",
     "pytest",
     "pytest-cov",
     "pre-commit"
@@ -53,7 +51,6 @@ version_files = [
 tag_format = "v$version"
 update_changelog_on_bump = true
 changelog_file = "CHANGELOG.md"
-
 
 
 [tool.mypy]
