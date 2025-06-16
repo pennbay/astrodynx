@@ -1,5 +1,6 @@
 ![GitHub License](https://img.shields.io/github/license/pennbay/astrodynx)
-
+[![CI](https://github.com/pennbay/astrodynx/actions/workflows/ci.yml/badge.svg)](https://github.com/pennbay/astrodynx/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/pennbay/astrodynx/graph/badge.svg?token=CeIVlgbcAs)](https://codecov.io/gh/pennbay/astrodynx)
 
 # AstroDynX
 
