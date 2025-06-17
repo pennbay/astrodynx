@@ -71,10 +71,7 @@ changelog_file = "CHANGELOG.md"
 
 
 [tool.mypy]
-warn_return_any = true
-warn_unused_configs = true
-disallow_untyped_defs = true
-disallow_incomplete_defs = true
+strict = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
