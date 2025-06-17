@@ -28,24 +28,8 @@ import astrodynx as adx
 print(adx.__version__)
 ```
 
-
 ## Development
-Initialize
-```bash
-pip install -e .[dev]
-pre-commit install
-```
-After code change
-```bash
-pytest
-```
-Push code to source repo
-```bash
-git add .
-pre-commit
-cz c
-git push -u origin main --tags
-```
+[Develop Guide](Develop.md)
 
 ## Build Docs
 ```bash
