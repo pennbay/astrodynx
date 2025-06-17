@@ -1,7 +1,7 @@
 # Develop Guide
 
 ## Clone repository
-Fork the repo and clone it to your local machine.
+Fork the repo and clone it to your local machine. Then add the original repository as an upstream remote to keep your fork up to date.
 ```bash
 git clone <your-fork-url>
 cd astrodynx
