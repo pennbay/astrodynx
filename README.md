@@ -1,9 +1,8 @@
 ![PyPI - Version](https://img.shields.io/pypi/v/astrodynx)
 ![GitHub License](https://img.shields.io/github/license/pennbay/astrodynx)
 [![Github CI](https://github.com/pennbay/astrodynx/actions/workflows/ci.yml/badge.svg)](https://github.com/pennbay/astrodynx/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/pennbay/astrodynx/graph/badge.svg?token=CeIVlgbcAs)](https://codecov.io/gh/pennbay/astrodynx)
-[![Publish to PyPI](https://github.com/pennbay/astrodynx/actions/workflows/publish.yml/badge.svg)](https://github.com/pennbay/astrodynx/actions/workflows/publish.yml)
 [![Deploy Docs](https://github.com/pennbay/astrodynx/actions/workflows/docs.yml/badge.svg)](https://github.com/pennbay/astrodynx/actions/workflows/docs.yml)
+[![codecov](https://codecov.io/gh/pennbay/astrodynx/graph/badge.svg?token=CeIVlgbcAs)](https://codecov.io/gh/pennbay/astrodynx)
 
 
 # AstroDynX
