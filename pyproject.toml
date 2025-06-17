@@ -47,6 +47,7 @@ docs = [
     "nbsphinx",
     "sphinx-autodoc-typehints",
     "sphinx-copybutton",
+    "sphinx-math-dollar",
     "ipython",
     "matplotlib",
     "jupyter",

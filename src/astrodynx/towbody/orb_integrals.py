@@ -4,7 +4,7 @@ from jax import Array
 
 
 def ang_momentum(r: ArrayLike, v: ArrayLike) -> Array:
-    """
+    r"""
     Returns the angular momentum vector of a two-body system.
 
     Parameters
@@ -22,13 +22,13 @@ def ang_momentum(r: ArrayLike, v: ArrayLike) -> Array:
     Notes
     -----
     The angular momentum vector is calculated using the cross product of the position and velocity vectors:
-    .. math::
+    $$
     \mathbf{h} = \mathbf{r} \times \mathbf{v}
-
+    $$
     where:
-    - \mathbf{h} is the angular momentum vector,
-    - \mathbf{r} is the position vector,
-    - \mathbf{v} is the velocity vector.
+    - $\mathbf{h}$ is the angular momentum vector,
+    - $\mathbf{r}$ is the position vector,
+    - $\mathbf{v}$ is the velocity vector.
     The result is a 3D vector representing the angular momentum of the object in the two-body system.
 
     Examples
