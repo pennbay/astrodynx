@@ -8,7 +8,7 @@ API Reference
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: astrodynx.towbody.orb_integrals
+.. automodule:: astrodynx.twobody.orb_integrals
    :members:
    :undoc-members:
    :show-inheritance:

@@ -9,8 +9,12 @@ Welcome to AstroDynX's documentation!
    examples/index
    api/index
 
+.. toctree::
+   :maxdepth: 1
+
+   changelog
+
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`
