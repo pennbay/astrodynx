@@ -27,7 +27,9 @@ def ang_momentum_vec(r: ArrayLike, v: ArrayLike) -> Array:
     $$
     where $\mathbf{h}$ is the angular momentum vector, $\mathbf{r}$ is the position vector, $\mathbf{v}$ is the velocity vector.
 
-    The result is a 3D vector representing the angular momentum of the object in the two-body system.
+    References
+    ----------
+    Battin, 1999, pp.115.
 
     Examples
     --------
@@ -37,10 +39,6 @@ def ang_momentum_vec(r: ArrayLike, v: ArrayLike) -> Array:
     >>> v = jnp.array([0.0, 1.0, 0.0])
     >>> ang_momentum(r, v)
     Array([0., 0., 1.])
-
-    References
-    ----------
-    Battin, 1999, pp.115.
     """
     return jnp.cross(r, v)
 
@@ -73,6 +71,10 @@ def eccentricity_vec(r: ArrayLike, v: ArrayLike, mu: DTypeLike) -> Array:
 
     The result is a 3D vector representing the eccentricity of the object's orbit in the two-body system.
 
+    References
+    ----------
+    Battin, 1999, pp.115.
+
     Examples
     --------
     >>> import jax.numpy as jnp
@@ -83,13 +85,50 @@ def eccentricity_vec(r: ArrayLike, v: ArrayLike, mu: DTypeLike) -> Array:
     >>> h = ang_momentum_vec(r, v)
     >>> eccentricity_vec(r, v, mu)
     Array([-1.,  0.,  0.])
-
-    References
-    ----------
-    Battin, 1999, pp.115.
     """
     h = ang_momentum_vec(r, v)
     return (jnp.cross(v, h) / mu) - (r / jnp.linalg.norm(r))
+
+
+def semiparameter(h: DTypeLike, mu: DTypeLike) -> DTypeLike:
+    r"""
+    Returns the semiparameter of a two-body system.
+
+    Parameters
+    ----------
+    h : DTypeLike
+        Magnitude of the angular momentum vector of the object.
+    mu : DTypeLike
+        Gravitational parameter of the central body.
+
+    Returns
+    -------
+    out : DTypeLike
+        Semiparameter of the object's orbit.
+
+    Notes
+    -----
+    The semiparameter is calculated using the formula:
+    $$
+    p = \frac{h^2}{\mu}
+    $$
+    where $p$ is the semiparameter, $h$ is the magnitude of the angular momentum vector, and $\mu$ is the gravitational parameter.
+    The result is a scalar value representing the semiparameter of the object's orbit in the two-body system.
+
+    References
+    ----------
+    Battin, 1999, pp.116.
+
+    Examples
+    --------
+    >>> import jax.numpy as jnp
+    >>> from astrodynx.towbody.orb_integrals import semiparameter
+    >>> h = 1.0
+    >>> mu = 1.0
+    >>> semiparameter(h, mu)
+    1.0
+    """
+    return h**2 / mu
 
 
 def semimajor_axis(r: DTypeLike, v: DTypeLike, mu: DTypeLike) -> DTypeLike:
@@ -118,6 +157,11 @@ def semimajor_axis(r: DTypeLike, v: DTypeLike, mu: DTypeLike) -> DTypeLike:
     $$
     where $a$ is the semimajor axis, $r$ is the magnitude of the position vector, $v$ is the magnitude of the velocity vector, and $\mu$ is the gravitational parameter.
     The result is a scalar value representing the semimajor axis of the object's orbit in the two-body system.
+
+    References
+    ----------
+    Battin, 1999, pp.116.
+
     Examples
     --------
     >>> import jax.numpy as jnp
@@ -127,8 +171,48 @@ def semimajor_axis(r: DTypeLike, v: DTypeLike, mu: DTypeLike) -> DTypeLike:
     >>> mu = 1.0
     >>> semimajor_axis(r, v, mu)
     1.0
+    """
+    return 1 / (2 / r - (v**2) / mu)
+
+
+def equation_of_orbit(p: DTypeLike, e: DTypeLike, f: DTypeLike) -> DTypeLike:
+    r"""
+    Returns the equation of the orbit for a two-body system.
+
+    Parameters
+    ----------
+    p : DTypeLike
+        Semiparameter of the object's orbit.
+    e : DTypeLike
+        Eccentricity of the object's orbit.
+    f : DTypeLike
+        True anomaly of the object's orbit.
+
+    Returns
+    -------
+    out : DTypeLike
+        radius.
+
+    Notes
+    -----
+    The equation of the orbit is calculated using the formula:
+    $$
+    r = \frac{p}{1 + e \cos(f)}
+    $$
+    where $r$ is the distance from the central body, $p$ is the semiparameter, $e$ is the eccentricity, and $f$ is the true anomaly.
+
     References
     ----------
     Battin, 1999, pp.116.
+
+    Examples
+    --------
+    >>> import jax.numpy as jnp
+    >>> from astrodynx.towbody.orb_integrals import equation_of_orbit
+    >>> p = 1.0
+    >>> e = 0.5
+    >>> f = jnp.pi / 4  # 45 degrees in radians
+    >>> equation_of_orbit(p, e, f)
+    0.7071067811865476
     """
-    return 1 / (2 / r - (v**2) / mu)
+    return p / (1 + e * jnp.cos(f))

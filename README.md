@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/gh/pennbay/astrodynx/graph/badge.svg?token=CeIVlgbcAs)](https://codecov.io/gh/pennbay/astrodynx)
 
 
-# AstroDynX
+# AstroDynX (adx)
 
 A modern astrodynamics library powered by JAX: differentiate, vectorize, JIT to GPU/TPU, and more.
 
@@ -39,10 +39,12 @@ After code change
 ```bash
 pytest
 ```
+Push code to source repo
 ```bash
 git add .
 pre-commit
 cz c
+cz bump
 git push -u origin main --tags
 ```
 

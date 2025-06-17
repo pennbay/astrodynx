@@ -2,6 +2,8 @@ from astrodynx.towbody.orb_integrals import (
     ang_momentum_vec,
     eccentricity_vec,
     semimajor_axis,
+    semiparameter,
+    equation_of_orbit,
 )
 
 import jax.numpy as jnp
@@ -120,3 +122,112 @@ class TestSemimajorAxis:
         expected = 1 / (2 / r)
         result = semimajor_axis(r, v, mu)
         assert jnp.allclose(result, expected)
+
+
+class TestSemiparameter:
+    def test_basic(self) -> None:
+        h = 1.0
+        mu = 1.0
+        expected = 1.0
+        result = semiparameter(h, mu)
+        assert jnp.allclose(result, expected)
+
+    def test_non_unit_values(self) -> None:
+        h = 3.0
+        mu = 2.0
+        expected = (3.0**2) / 2.0
+        result = semiparameter(h, mu)
+        assert jnp.allclose(result, expected)
+
+    def test_zero_h(self) -> None:
+        h = 0.0
+        mu = 5.0
+        expected = 0.0
+        result = semiparameter(h, mu)
+        assert jnp.allclose(result, expected)
+
+    def test_negative_h(self) -> None:
+        h = -4.0
+        mu = 2.0
+        expected = ((-4.0) ** 2) / 2.0
+        result = semiparameter(h, mu)
+        assert jnp.allclose(result, expected)
+
+    def test_negative_mu(self) -> None:
+        h = 2.0
+        mu = -2.0
+        expected = (2.0**2) / -2.0
+        result = semiparameter(h, mu)
+        assert jnp.allclose(result, expected)
+
+
+class TestEquationOfOrbit:
+    def test_example_case(self) -> None:
+        import jax.numpy as jnp
+
+        p = 1.0
+        e = 0.5
+        f = jnp.pi / 4  # 45 degrees
+        expected = p / (1 + e * jnp.cos(f))
+        result = equation_of_orbit(p, e, f)
+        assert jnp.allclose(result, expected)
+
+    def test_zero_eccentricity(self) -> None:
+        import jax.numpy as jnp
+
+        p = 2.0
+        e = 0.0
+        f = jnp.pi / 3
+        expected = p
+        result = equation_of_orbit(p, e, f)
+        assert jnp.allclose(result, expected)
+
+    def test_true_anomaly_zero(self) -> None:
+        import jax.numpy as jnp
+
+        p = 3.0
+        e = 0.2
+        f = 0.0
+        expected = p / (1 + e)
+        result = equation_of_orbit(p, e, f)
+        assert jnp.allclose(result, expected)
+
+    def test_true_anomaly_pi(self) -> None:
+        import jax.numpy as jnp
+
+        p = 4.0
+        e = 0.3
+        f = jnp.pi
+        expected = p / (1 - e)
+        result = equation_of_orbit(p, e, f)
+        assert jnp.allclose(result, expected)
+
+    def test_negative_eccentricity(self) -> None:
+        import jax.numpy as jnp
+
+        p = 5.0
+        e = -0.5
+        f = jnp.pi / 2
+        expected = p / (1 + e * jnp.cos(f))
+        result = equation_of_orbit(p, e, f)
+        assert jnp.allclose(result, expected)
+
+    def test_vectorized_true_anomaly(self) -> None:
+        import jax.numpy as jnp
+
+        p = 1.0
+        e = 0.5
+        f = jnp.array([0.0, jnp.pi / 2, jnp.pi])
+        expected = p / (1 + e * jnp.cos(f))
+        result = equation_of_orbit(p, e, f)
+        assert jnp.allclose(result, expected)
+
+    def test_division_by_zero(self) -> None:
+        import jax.numpy as jnp
+
+        p = 1.0
+        e = -1.0
+        f = 0.0
+        # denominator is zero: 1 + (-1)*1 = 0
+        result = equation_of_orbit(p, e, f)
+        assert jnp.isinf(result) or jnp.isnan(result)
