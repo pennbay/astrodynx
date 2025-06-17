@@ -67,7 +67,7 @@ def eccentricity_vec(r: ArrayLike, v: ArrayLike, mu: DTypeLike) -> Array:
     -----
     The eccentricity vector is calculated using the formula:
     $$
-    \mathbf{e} = \frac{\mathbf{v} \times \mathbf{h}}{\mu} - \frac{\mathbf{r}}{|\mathbf{r}|}
+    \mathbf{e} = \frac{\mathbf{v} \times \mathbf{h}}{\mu} - \frac{\mathbf{r}}{r}
     $$
     where $\mathbf{e}$ is the eccentricity vector, $\mathbf{v}$ is the velocity vector, $\mathbf{h}$ is the angular momentum vector, $\mu$ is the gravitational parameter, and $\mathbf{r}$ is the position vector.
 
@@ -114,7 +114,7 @@ def semimajor_axis(r: DTypeLike, v: DTypeLike, mu: DTypeLike) -> DTypeLike:
     -----
     The semimajor axis is calculated using the formula:
     $$
-    a = \frac{2/r - v^2/\mu}{\mu}
+    a = \left(\frac{2}{r} - \frac{v^2}{\mu}\right)^{-1}
     $$
     where $a$ is the semimajor axis, $r$ is the magnitude of the position vector, $v$ is the magnitude of the velocity vector, and $\mu$ is the gravitational parameter.
     The result is a scalar value representing the semimajor axis of the object's orbit in the two-body system.

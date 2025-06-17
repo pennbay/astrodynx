@@ -1,3 +1,9 @@
+## v0.2.0 (2025-06-17)
+
+### Feat
+
+- **orb_integrals.py**: add ecc and sma funcs
+
 ## v0.1.0 (2025-06-16)
 
 ### Feat
