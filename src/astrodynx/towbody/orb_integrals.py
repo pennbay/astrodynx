@@ -25,10 +25,8 @@ def ang_momentum(r: ArrayLike, v: ArrayLike) -> Array:
     $$
     \mathbf{h} = \mathbf{r} \times \mathbf{v}
     $$
-    where:
-    - $\mathbf{h}$ is the angular momentum vector,
-    - $\mathbf{r}$ is the position vector,
-    - $\mathbf{v}$ is the velocity vector.
+    where $\mathbf{h}$ is the angular momentum vector, $\mathbf{r}$ is the position vector, $\mathbf{v}$ is the velocity vector.
+
     The result is a 3D vector representing the angular momentum of the object in the two-body system.
 
     Examples
