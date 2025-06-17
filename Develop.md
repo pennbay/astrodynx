@@ -6,6 +6,7 @@ Fork the repo and clone it to your local machine. Then add the original reposito
 git clone <your-fork-url>
 cd astrodynx
 git remote add upstream https://github.com/pennbay/astrodynx.git
+git update-ref -d refs/remotes/upstream/gh-pages
 ```
 
 ## Setup development environment
@@ -21,12 +22,6 @@ pytest
 ```
 
 ## Development workflow
-Before making any changes, ensure your local repository is up to date with the upstream repository.
-```bash
-git fetch upstream
-git checkout main
-git rebase upstream/main
-```
 Make changes to the codebase, then test your changes.
 ```bash
 pytest
@@ -65,7 +60,7 @@ cz c
 ```
 Push your changes to your fork
 ```bash
-git push -u origin main --tags
+git push -f origin main --tags
 ```
 
 ## Create a pull request
