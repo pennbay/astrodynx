@@ -44,7 +44,6 @@ Push code to source repo
 git add .
 pre-commit
 cz c
-cz bump
 git push -u origin main --tags
 ```
 

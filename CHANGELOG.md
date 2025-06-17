@@ -1,3 +1,17 @@
+## v0.3.0 (2025-06-17)
+
+### Feat
+
+- **twobody**: add semi parameter and orb equation funcs
+
+### Fix
+
+- **tests**: fix twobody import path
+
+### Refactor
+
+- **twobody**: rename twobody directory
+
 ## v0.2.0 (2025-06-17)
 
 ### Feat
