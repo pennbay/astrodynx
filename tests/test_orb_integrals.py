@@ -1,4 +1,4 @@
-from astrodynx.towbody.orb_integrals import (
+from astrodynx.twobody.orb_integrals import (
     ang_momentum_vec,
     eccentricity_vec,
     semimajor_axis,
