@@ -36,3 +36,8 @@ print(adx.__version__)
 pip install -e .[docs]
 sphinx-build -b html docs docs/_build/html
 ```
+
+## Contributors
+<a href="https://github.com/adxorg/astrodynx/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=adxorg/astrodynx" />
+</a>
