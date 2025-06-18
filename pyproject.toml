@@ -29,9 +29,9 @@ classifiers = [
 keywords = ["astrodynamics", "celestial mechanics"]
 
 [project.urls]
-"Homepage" = "https://github.com/pennbay/astrodynx"
-"Bug Tracker" = "https://github.com/pennbay/astrodynx/issues"
-"Documentation" = "https://pennbay.github.io/astrodynx"
+"Homepage" = "https://github.com/adxorg/astrodynx"
+"Bug Tracker" = "https://github.com/adxorg/astrodynx/issues"
+"Documentation" = "https://adxorg.github.io/astrodynx"
 
 [project.optional-dependencies]
 dev = [

@@ -46,7 +46,7 @@ myst_enable_extensions = [
 # -- Options for HTML output -------------------------------------------------
 html_theme = "sphinx_book_theme"
 html_theme_options = {
-    "repository_url": "https://github.com/pennbay/astrodynx",
+    "repository_url": "https://github.com/adxorg/astrodynx",
     "use_repository_button": True,
     "use_issues_button": True,
     "path_to_docs": "docs",
