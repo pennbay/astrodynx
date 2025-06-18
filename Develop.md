@@ -5,7 +5,7 @@ Fork the repo and clone it to your local machine. Then add the original reposito
 ```bash
 git clone <your-fork-url>
 cd astrodynx
-git remote add upstream https://github.com/pennbay/astrodynx.git
+git remote add upstream https://github.com/pennbay/astrodynx.git -t main
 git update-ref -d refs/remotes/upstream/gh-pages
 ```
 
@@ -14,6 +14,14 @@ Install development dependencies.
 ```bash
 pip install -e .[dev]
 pre-commit install
+```
+If you want to run on NVIDIA GPU, ensure you have the necessary drivers and CUDA toolkit installed. Then install the JAX library with CUDA support:
+```bash
+pip install -U "jax[cuda12]"
+```
+If you want to run on GOOGLE TPU, ensure you have the necessary drivers and TPU runtime installed. Then install the JAX library with TPU support:
+```bash
+pip install -U "jax[tpu]"
 ```
 
 Test the installation.
