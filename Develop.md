@@ -14,7 +14,7 @@ git remote add upstream https://github.com/adxorg/astrodynx.git -t main
 Install development dependencies.
 ```bash
 pip install -e .[dev]
-pre-commit install
+pre-commit install # IMPORTANT: This sets up pre-commit hooks to run checks before committing.
 ```
 If you want to run on NVIDIA GPU, ensure you have the necessary drivers and CUDA toolkit installed. Then install the JAX library with CUDA support:
 ```bash
