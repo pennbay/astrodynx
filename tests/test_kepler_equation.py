@@ -1,4 +1,7 @@
-from astrodynx.twobody.kepler_equation import mean_anomaly_ecliptic
+from astrodynx.twobody.kepler_equation import (
+    mean_anomaly_ecliptic,
+    mean_anomaly_hyperbolic,
+)
 
 import jax.numpy as jnp
 
@@ -41,4 +44,46 @@ class TestMeanAnomalyEcliptic:
         E = 1.2
         result = mean_anomaly_ecliptic(e, E)
         expected = E - e * jnp.sin(E)
+        assert jnp.allclose(result, expected)
+
+
+class TestMeanAnomalyHyperbolic:
+    def test_scalar(self) -> None:
+        # Example from docstring
+        e = 1.1
+        H = jnp.pi / 4
+        expected = e * jnp.sinh(H) - H
+        result = mean_anomaly_hyperbolic(e, H)
+        assert jnp.allclose(result, expected)
+
+    def test_array_input(self) -> None:
+        # Test with array inputs
+        e = jnp.array([1.1, 2.0, 3.0])
+        H = jnp.array([0.0, 1.0, 2.0])
+        expected = e * jnp.sinh(H) - H
+        result = mean_anomaly_hyperbolic(e, H)
+        assert jnp.allclose(result, expected)
+
+    def test_zero_hyperbolic_anomaly(self) -> None:
+        # If H is zero, mean anomaly is -H = 0
+        e = 2.0
+        H = 0.0
+        expected = e * jnp.sinh(H) - H
+        result = mean_anomaly_hyperbolic(e, H)
+        assert jnp.allclose(result, expected)
+
+    def test_negative_hyperbolic_anomaly(self) -> None:
+        # Should handle negative H
+        e = 1.5
+        H = -1.0
+        expected = e * jnp.sinh(H) - H
+        result = mean_anomaly_hyperbolic(e, H)
+        assert jnp.allclose(result, expected)
+
+    def test_types(self) -> None:
+        # Test with python floats and numpy floats
+        e = 2.5
+        H = 1.2
+        expected = e * jnp.sinh(H) - H
+        result = mean_anomaly_hyperbolic(e, H)
         assert jnp.allclose(result, expected)
