@@ -56,9 +56,6 @@ coverage.xml
 # Ruff
 .ruff_cache/
 
-# VS Code
-.vscode/
-
 # System files
 .DS_Store
 Thumbs.db
