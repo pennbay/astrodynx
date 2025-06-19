@@ -1,4 +1,4 @@
-# Develop Guide
+# Contributing Guide
 
 ## Clone repository
 Fork the source repository to your repository on GitHub.

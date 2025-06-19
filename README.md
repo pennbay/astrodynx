@@ -28,11 +28,11 @@ import astrodynx as adx
 print(adx.__version__)
 ```
 
-## Development
-[Develop Guide](Develop.md)
-
 ## Build Docs
 ```bash
 pip install -e .[docs]
 sphinx-build -b html docs docs/_build/html
 ```
+
+## Contributing
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
