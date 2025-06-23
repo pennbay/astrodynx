@@ -34,6 +34,9 @@ keywords = ["astrodynamics", "celestial mechanics"]
 "Documentation" = "https://adxorg.github.io/astrodynx"
 
 [project.optional-dependencies]
+cuda12 = [
+    "jax[cuda12]"
+]
 dev = [
     "commitizen",
     "pytest",
