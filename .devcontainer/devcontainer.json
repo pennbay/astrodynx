@@ -24,6 +24,8 @@
 		"vscode": {
 			"extensions": [
 				"mhutchie.git-graph",
+				"tamasfe.even-better-toml",
+				"github.vscode-github-actions",
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 				"ms-toolsai.jupyter",
