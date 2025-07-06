@@ -19,6 +19,7 @@ from astrodynx.twobody._orb_integrals import (
     semiparameter,
     mean_motion,
     equ_of_orbit,
+    equ_of_orb_uvi,
     radius_periapsis,
     radius_apoapsis,
 )
@@ -38,6 +39,7 @@ __all__ = [
     "semiparameter",
     "mean_motion",
     "equ_of_orbit",
+    "equ_of_orb_uvi",
     "radius_periapsis",
     "radius_apoapsis",
 ]

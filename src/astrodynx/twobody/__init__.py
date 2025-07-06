@@ -4,6 +4,15 @@ from astrodynx.twobody._lagrange import (
     lagrange_Ft,
     lagrange_Gt,
 )
+from astrodynx.twobody._uniformulas import (
+    sigma_bvp,
+    ufunc0,
+    ufunc1,
+    ufunc2,
+    ufunc3,
+    ufunc4,
+    ufunc5,
+)
 from astrodynx.twobody._state_trans import (
     prpr0,
     prpv0,
@@ -22,4 +31,11 @@ __all__ = [
     "pvpr0",
     "pvpv0",
     "dxdx0",
+    "sigma_bvp",
+    "ufunc0",
+    "ufunc1",
+    "ufunc2",
+    "ufunc3",
+    "ufunc4",
+    "ufunc5",
 ]
