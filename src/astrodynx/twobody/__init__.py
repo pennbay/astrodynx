@@ -20,6 +20,12 @@ from astrodynx.twobody._state_trans import (
     pvpv0,
     dxdx0,
 )
+from astrodynx.twobody._path_check import (
+    nmax_by_periapsis,
+    is_short_way,
+    pass_perigee,
+    rp_islower_rmin,
+)
 
 __all__ = [
     "lagrange_F",
@@ -38,4 +44,8 @@ __all__ = [
     "ufunc3",
     "ufunc4",
     "ufunc5",
+    "nmax_by_periapsis",
+    "is_short_way",
+    "pass_perigee",
+    "rp_islower_rmin",
 ]
