@@ -147,9 +147,9 @@ class TestKeplerEquUni:
         deltat = 1.0
         mu = 1.0
         expected = (
-            r0 * adx.twobody.uniformulas.ufunc1(chi, alpha)
-            + sigma0 * adx.twobody.uniformulas.ufunc2(chi, alpha)
-            + adx.twobody.uniformulas.ufunc3(chi, alpha)
+            r0 * adx.twobody.ufunc1(chi, alpha)
+            + sigma0 * adx.twobody.ufunc2(chi, alpha)
+            + adx.twobody.ufunc3(chi, alpha)
             - jnp.sqrt(mu) * deltat
         )
         result = adx.kepler_equ_uni(chi, alpha, r0, sigma0, deltat, mu)
@@ -164,9 +164,9 @@ class TestKeplerEquUni:
         deltat = jnp.array([1.0, 1.0])
         mu = jnp.array([1.0, 1.0])
         expected = (
-            r0 * adx.twobody.uniformulas.ufunc1(chi, alpha)
-            + sigma0 * adx.twobody.uniformulas.ufunc2(chi, alpha)
-            + adx.twobody.uniformulas.ufunc3(chi, alpha)
+            r0 * adx.twobody.ufunc1(chi, alpha)
+            + sigma0 * adx.twobody.ufunc2(chi, alpha)
+            + adx.twobody.ufunc3(chi, alpha)
             - jnp.sqrt(mu) * deltat
         )
         result = adx.kepler_equ_uni(chi, alpha, r0, sigma0, deltat, mu)
@@ -177,10 +177,10 @@ class TestKeplerEquUni:
         chi = jnp.pi * 0.6
         alpha = jnp.array([1.0, 0, -1.0])
         r0, sigma0, deltat, mu = 1.0, 0.0, 1.0, 1.0
-        U0 = jax.vmap(adx.twobody.uniformulas.ufunc0, in_axes=(None, 0))(chi, alpha)
-        U1 = jax.vmap(adx.twobody.uniformulas.ufunc1, in_axes=(None, 0))(chi, alpha)
-        U2 = jax.vmap(adx.twobody.uniformulas.ufunc2, in_axes=(None, 0))(chi, alpha)
-        expected = adx.twobody.uniformulas.radius(U0, U1, U2, r0, sigma0) / jnp.sqrt(
+        U0 = jax.vmap(adx.twobody.ufunc0, in_axes=(None, 0))(chi, alpha)
+        U1 = jax.vmap(adx.twobody.ufunc1, in_axes=(None, 0))(chi, alpha)
+        U2 = jax.vmap(adx.twobody.ufunc2, in_axes=(None, 0))(chi, alpha)
+        expected = adx.equ_of_orb_uvi(U0, U1, U2, r0, sigma0) / jnp.sqrt(
             mu
         )  # dt/d chi = r / sqrt(mu), Battin 1999, pp.174.
 

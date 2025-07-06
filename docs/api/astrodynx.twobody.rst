@@ -5,8 +5,3 @@
     :members:
     :undoc-members:
     :show-inheritance:
-
-.. automodule:: astrodynx.twobody.uniformulas
-    :members:
-    :undoc-members:
-    :show-inheritance:

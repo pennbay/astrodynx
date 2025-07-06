@@ -3,8 +3,8 @@ from jax.typing import ArrayLike
 from jax import Array
 from jax.numpy.linalg import vector_norm
 import astrodynx as adx
-from astrodynx.twobody.uniformulas import ufunc1, ufunc2, ufunc4, ufunc5, sigma_bvp
-from astrodynx.twobody import lagrange_F, lagrange_G, lagrange_Ft, lagrange_Gt
+from astrodynx.twobody._uniformulas import ufunc1, ufunc2, ufunc4, ufunc5, sigma_bvp
+from astrodynx.twobody._lagrange import lagrange_F, lagrange_G, lagrange_Ft, lagrange_Gt
 
 """State transition matrices for two-body orbital mechanics."""
 

@@ -1,7 +1,7 @@
 import jax.numpy as jnp
 from jax.typing import ArrayLike, DTypeLike
 from jax import Array
-from astrodynx.twobody.uniformulas import ufunc1, ufunc2, ufunc3
+from astrodynx.twobody._uniformulas import ufunc1, ufunc2, ufunc3
 
 """Kepler's equations and generalized anomaly for two-body orbital mechanics."""
 

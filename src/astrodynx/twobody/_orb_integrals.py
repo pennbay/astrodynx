@@ -305,6 +305,57 @@ def equ_of_orbit(p: ArrayLike, e: ArrayLike, f: ArrayLike) -> Array:
     return p / (1 + e * jnp.cos(f))
 
 
+def equ_of_orb_uvi(
+    U0: ArrayLike, U1: ArrayLike, U2: ArrayLike, r0: ArrayLike, sigma0: ArrayLike
+) -> ArrayLike:
+    r"""The equation of orbit using universal functions
+
+    Args:
+        U0: The universal function U0.
+        U1: The universal function U1.
+        U2: The universal function U2.
+        r0: The radius at the initial time.
+        sigma0: The sigma function at the initial time.
+
+    Returns:
+        The radius.
+
+    Notes:
+        The function is defined as:
+        $$
+        r = r_0 U_0 + \sigma_0 U_1 + U_2
+        $$
+        where $U_0$ is the universal function U0, $U_1$ is the universal function U1, $U_2$ is the universal function U2, $r_0$ is the radius at the initial time, and $\sigma_0$ is the sigma function at the initial time.
+
+    References:
+        Battin, 1999, pp.178.
+
+    Examples:
+        A simple example:
+
+        >>> import jax.numpy as jnp
+        >>> import astrodynx as adx
+        >>> U0 = 1.0
+        >>> U1 = 1.0
+        >>> U2 = 1.0
+        >>> r0 = 1.0
+        >>> sigma0 = 0.0
+        >>> adx.equ_of_orb_uvi(U0, U1, U2, r0, sigma0)
+        2.0
+
+        With broadcasting:
+
+        >>> U0 = jnp.array([1.0, 2.0])
+        >>> U1 = jnp.array([1.0, 2.0])
+        >>> U2 = jnp.array([1.0, 1.0])
+        >>> r0 = jnp.array([1.0, 1.0])
+        >>> sigma0 = jnp.array([0.0, 0.0])
+        >>> adx.equ_of_orb_uvi(U0, U1, U2, r0, sigma0)
+        Array([2., 3.], dtype=float32)
+    """
+    return r0 * U0 + sigma0 * U1 + U2
+
+
 def radius_periapsis(p: ArrayLike, e: ArrayLike) -> ArrayLike:
     r"""
     Returns the radius of periapsis of the orbit.
